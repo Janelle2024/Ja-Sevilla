@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Cute Style</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f8ff;
+    }
+    .container {
+      text-align: center;
+    }
+    #myElement {
+      font-size: 20px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="myElement">Style Me!</div>
+    <button onclick="toggleStyle()">Click Me</button>
+  </div>
+
+  <script>
+    let isStyled = false;
+
+    function toggleStyle() {
+      const element = document.getElementById('myElement');
+
+      if (!isStyled) {
+        element.style.color = "#FF69B4";
+        element.style.backgroundColor = "#FFD1DC";
+        element.style.border = "3px dashed #FFB6C1";
+        element.style.fontSize = "30px";
+        element.style.padding = "20px";
+        element.innerText = "Style Me! 💖";
+      } else {
+        element.style.color = "";
+        element.style.backgroundColor = "";
+        element.style.border = "";
+        element.style.fontSize = "";
+        element.style.padding = "";
+        element.innerText = "Style Me!";
+      }
+
+      isStyled = !isStyled;
+    }
+  </script>
+</body>
+</html>
