@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Text Fonts</title>
+  <style>
+   
+    @font-face {
+      font-family: 'CustomFont1';
+      src: local('Arial');
+    }
+    @font-face {
+      font-family: 'CustomFont2';
+      src: local('Courier New');
+    }
+
+    #textElement {
+      font-family: 'CustomFont1'; /* Default font */
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Text Element -->
+  <div id="textElement">Hello World!</div>
+
+  <!-- Button -->
+  <button id="toggleFontButton">Click Me</button>
+
+  <script>
+    let isDefaultFont = true;
+
+    
+    document.getElementById("toggleFontButton").onclick = function() {
+      const textElement = document.getElementById("textElement");
+
+      if (isDefaultFont) {
+        textElement.style.fontFamily = "CustomFont2"; // Switch to second font
+      } else {
+        textElement.style.fontFamily = "CustomFont1"; // Switch back to default font
+      }
+
+      // Toggle the state
+      isDefaultFont = !isDefaultFont;
+    };
+  </script>
+</body>
+</html>
