@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .traffic-light {
+            width: 80px;
+            background-color: black;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .light {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: gray;
+        }
+        .red { background-color: red; }
+        .yellow { background-color: yellow; }
+        .green { background-color: green; }
+        .switch {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="traffic-light">
+            <div id="red" class="light"></div>
+            <div id="yellow" class="light"></div>
+            <div id="green" class="light"></div>
+        </div>
+        <button class="switch" onclick="startTrafficLight()">Click Me</button>
+    </div>
+    
+    <script>
+        const lights = ["red", "yellow", "green"];
+        let currentIndex = 0;
+
+        function changeLight() {
+            // Reset all the lights to gray
+            document.getElementById("red").style.backgroundColor = "gray";
+            document.getElementById("yellow").style.backgroundColor = "gray";
+            document.getElementById("green").style.backgroundColor = "gray";
+            
+            // Turn the current light
+            const currentLight = lights[currentIndex];
+            document.getElementById(currentLight).style.backgroundColor = currentLight;
+            
+            // Move the light to the next light for the next cycle
+            currentIndex = (currentIndex + 1) % lights.length;
+        }
+
+        function startTrafficLight() {
+            // Change to the first light
+            changeLight();
+
+            // Schedule subsequent light changes every 6 seconds
+            setTimeout(function cycleLights() {
+                changeLight();
+                setTimeout(cycleLights, 6000); // 6 seconds in milliseconds
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
