@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Menu</title>
+  <style>
+    body {
+      background-color: white; /* White background */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 24px;
+    }
+
+    nav {
+      background-color: black; /* Black navigation bar */
+      padding: 10px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    ul > li {
+      position: relative;
+      margin-right: 20px;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      display: inline-block;
+    }
+
+    a:hover {
+      background-color: darkred; /* Darker red on hover */
+    }
+
+    .dropdown-menu {
+      display: none;
+      list-style: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: black; /* Black background for dropdown */
+      padding: 0;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px;
+      color: white; /* White text for dropdown items */
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: darkred; /* Darker red on hover */
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block; /* Show dropdown on hover */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Welcome to Janelle Sevilla Page
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)">Activities ▼</a>
+        <ul class="dropdown-menu">
+          <li><a href="#lights">Lights</a></li>
+          <li><a href="#traffic-lights">Traffic Lights</a></li>
+          <li><a href="#navigation-bar">Navigation Bar</a></li>
+        </ul>
+      </li>
+      <li><a href="#articles">Articles</a></li>
+      <li><a href="#inspiration">Inspiration</a></li>
+    </ul>
+  </nav>
+</body>
+</html>
