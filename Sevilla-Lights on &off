@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lights Page</title>
+  <style>
+    body {
+      background-color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 24px;
+    }
+    nav {
+      background-color: black;
+      padding: 10px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    ul > li {
+      position: relative;
+      margin-right: 20px;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      display: inline-block;
+    }
+    a:hover {
+      background-color: darkred;
+    }
+    .dropdown-menu {
+      display: none;
+      list-style: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: black;
+      padding: 0;
+    }
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px;
+      color: white;
+    }
+    .dropdown-menu li a:hover {
+      background-color: darkred;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    #lights-section {
+      display: none;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #light-icon {
+      width: 150px;
+      height: auto;
+      margin: 20px auto;
+    }
+    #lights-section button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      border: none;
+      background-color: gray;
+      color: white;
+    }
+    #lights-section button:hover {
+      background-color: lightgray;
+    }
+  </style>
+  <script>
+    function showLights() {
+      document.getElementById('lights-section').style.display = 'block';
+    }
+    function turnOnLights() {
+      const lightIcon = document.getElementById('light-icon');
+      lightIcon.src = 'https://www.cleveland.com/resizer/gw4hDFjuuNVAXGmA00Dw6V3i6qo=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.cleveland.com/home/cleve-media/width2048/img/metro/photo/light-bulbjpg-0888a13970e13580.jpg'; // Placeholder for ON state
+      lightIcon.alt = 'Light is ON';
+    }
+    function turnOffLights() {
+      const lightIcon = document.getElementById('light-icon');
+      lightIcon.src = 'https://img.freepik.com/premium-photo/classic-edison-light-bulb_93675-25510.jpg'; // Placeholder for OFF state
+      lightIcon.alt = 'Light is OFF';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    Welcome to Janelle Sevilla Page
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)">Activities ▼</a>
+        <ul class="dropdown-menu">
+          <li><a href="javascript:void(0)" onclick="showLights()">Lights</a></li>
+          <li><a href="#traffic-lights">Traffic Lights</a></li>
+          <li><a href="#navigation-bar">Navigation Bar</a></li>
+        </ul>
+      </li>
+      <li><a href="#articles">Articles</a></li>
+      <li><a href="#inspiration">Inspiration</a></li>
+    </ul>
+  </nav>
+  <div id="lights-section">
+    <h1>Lights</h1>
+    <img id="light-icon" src="https://img.freepik.com/premium-photo/classic-edison-light-bulb_93675-25510.jpg" alt="Light is OFF">
+    <button onclick="turnOnLights()">ON</button>
+    <button onclick="turnOffLights()">OFF</button>
+  </div>
+</body>
+</html>
