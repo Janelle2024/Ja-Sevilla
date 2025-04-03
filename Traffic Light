@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Menu</title>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 24px;
+    }
+    nav {
+      background-color: black;
+      padding: 10px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    ul > li {
+      position: relative;
+      margin-right: 20px;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      display: inline-block;
+    }
+    a:hover {
+      background-color: darkred;
+    }
+    .dropdown-menu {
+      display: none;
+      list-style: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: black;
+      padding: 0;
+      margin: 0;
+    }
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px;
+      color: white;
+    }
+    .dropdown-menu li a:hover {
+      background-color: darkred;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .container {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .traffic-light {
+      width: 100px;
+      height: 200px;
+      background-color: black;
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .light {
+      width: 60px;
+      height: 60px;
+      background-color: grey;
+      border-radius: 50%;
+    }
+    .red {
+      background-color: red;
+    }
+    .yellow {
+      background-color: yellow;
+    }
+    .green {
+      background-color: green;
+    }
+  </style>
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.container');
+      sections.forEach(section => section.style.display = 'none');
+      document.getElementById(sectionId).style.display = 'block';
+    }
+    function changeTrafficLight() {
+      const redLight = document.getElementById('red-light');
+      const yellowLight = document.getElementById('yellow-light');
+      const greenLight = document.getElementById('green-light');
+      redLight.classList.add('red');
+      yellowLight.classList.remove('yellow');
+      greenLight.classList.remove('green');
+      setTimeout(() => {
+        redLight.classList.remove('red');
+        yellowLight.classList.add('yellow');
+      }, 6000);
+      setTimeout(() => {
+        yellowLight.classList.remove('yellow');
+        greenLight.classList.add('green');
+      }, 12000);
+    }
+  </script>
+</head>
+<body>
+  <header>
+    Welcome to Janelle Sevilla Page
+  </header>
+  <nav>
+    <ul>
+      <li><a href="javascript:void(0)" onclick="showSection('home')">Home</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)">Activities ▼</a>
+        <ul class="dropdown-menu">
+          <li><a href="javascript:void(0)" onclick="showSection('lights')">Lights</a></li>
+          <li><a href="javascript:void(0)" onclick="showSection('traffic-lights')">Traffic Lights</a></li>
+          <li><a href="javascript:void(0)" onclick="showSection('navigation-bar')">Navigation Bar</a></li>
+        </ul>
+      </li>
+      <li><a href="javascript:void(0)" onclick="showSection('articles')">Articles</a></li>
+      <li><a href="javascript:void(0)" onclick="showSection('inspiration')">Inspiration</a></li>
+    </ul>
+  </nav>
+
+  <div id="traffic-lights" class="container">
+    <div class="traffic-light">
+      <div id="red-light" class="light"></div>
+      <div id="yellow-light" class="light"></div>
+      <div id="green-light" class="light"></div>
+    </div>
+    <button onclick="changeTrafficLight()">Click Me</button>
+  </div>
+
+  <div id="navigation-bar" class="container">
+    <h1>Navigation Bar</h1>
+  </div>
+  <div id="articles" class="container">
+    <h1>Articles</h1>
+  </div>
+</body>
+</html>
