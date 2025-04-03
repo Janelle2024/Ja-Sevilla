@@ -67,39 +67,33 @@
       margin-top: 50px;
     }
     #light-icon {
-      width: 150px;
-      height: auto;
+      width: 300px; /* Increased width */
+      height: auto; /* Maintain aspect ratio */
       margin: 20px auto;
-    }
-    #lights-section button {
-      margin: 10px;
-      padding: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      border: none;
-      background-color: gray;
-      color: white;
-    }
-    #lights-section button:hover {
-      background-color: lightgray;
     }
   </style>
   <script>
     function showLights() {
       document.getElementById('lights-section').style.display = 'block';
+      autoToggleLights(); // Start toggling automatically when the section is shown
     }
-    function turnOnLights() {
+
+    function autoToggleLights() {
       const lightIcon = document.getElementById('light-icon');
-      lightIcon.src = 'https://www.cleveland.com/resizer/gw4hDFjuuNVAXGmA00Dw6V3i6qo=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.cleveland.com/home/cleve-media/width2048/img/metro/photo/light-bulbjpg-0888a13970e13580.jpg'; // Placeholder for ON state
-      lightIcon.alt = 'Light is ON';
-    }
-    function turnOffLights() {
-      const lightIcon = document.getElementById('light-icon');
-      lightIcon.src = 'https://img.freepik.com/premium-photo/classic-edison-light-bulb_93675-25510.jpg'; // Placeholder for OFF state
-      lightIcon.alt = 'Light is OFF';
+      let isOn = false; // Track the light state
+
+      // Automatically switch the light every 6 seconds
+      setInterval(() => {
+        if (isOn) {
+          lightIcon.src = 'https://img.freepik.com/premium-photo/classic-edison-light-bulb_93675-25510.jpg'; // OFF state
+          lightIcon.alt = 'Light is OFF';
+          isOn = false;
+        } else {
+          lightIcon.src = 'https://www.cleveland.com/resizer/gw4hDFjuuNVAXGmA00Dw6V3i6qo=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.cleveland.com/home/cleve-media/width2048/img/metro/photo/light-bulbjpg-0888a13970e13580.jpg'; // ON state
+          lightIcon.alt = 'Light is ON';
+          isOn = true;
+        }
+      }, 6000); // Change image every 6 seconds
     }
   </script>
 </head>
@@ -123,10 +117,9 @@
     </ul>
   </nav>
   <div id="lights-section">
-    <h1>Lights</h1>
     <img id="light-icon" src="https://img.freepik.com/premium-photo/classic-edison-light-bulb_93675-25510.jpg" alt="Light is OFF">
-    <button onclick="turnOnLights()">ON</button>
-    <button onclick="turnOffLights()">OFF</button>
   </div>
 </body>
 </html>
+
+
