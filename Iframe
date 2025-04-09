@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olongapo Tourist Spots</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        .welcome {
+            padding: 50px;
+            background: url('https://1.bp.blogspot.com/-apHqYc_bFFI/TgMIX5bnrFI/AAAAAAAAADI/1XgZytQd_PU/s1600/ulo.jpg') no-repeat center center; /* Add your image URL */
+            background-size: cover;
+            background-color: #333;
+            color: white;
+            font-size: 24px;
+            border-radius: 10px;
+            width: 60%;
+            margin: 50px auto;
+            font-weight: bold;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            display: none;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+            color: #fff;
+        }
+        .navbar img {
+            width: 60px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+        .section {
+            display: none;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        #subic-bay {
+            background: url('https://i.pinimg.com/736x/98/65/46/986546c3f69c7d2565209f47c177ba35--olongapo-subic-bay.jpg') no-repeat center center;
+        }
+        #inflatable-island {
+            background: url('https://2.bp.blogspot.com/-RpYtARWyMW4/XFr_h6A3PKI/AAAAAAAAjZ0/78ITNFVwnpsy5_cYI_K39T6oCoka57rZQCKgBGAs/s1600/P1010523.JPG') no-repeat center center;
+        }
+        #marikit-park {
+            background: url('https://media-cdn.tripadvisor.com/media/photo-s/0d/46/12/f1/marikit-park.jpg') no-repeat center center;
+        }
+        #harbor-point {
+            background: url('https://th.bing.com/th/id/R.8ecfe29aed7df9c3659b57f10cd6909f?rik=nGHrr0CoQRuiiw&riu=http%3a%2f%2ffarm8.staticflickr.com%2f7248%2f7571868106_ce86bb8186_z.jpg&ehk=LanBsmrWhDSk5felVvjayBf2k5riySXkZj6IlaAe01w%3d&risl=&pid=ImgRaw&r=0') no-repeat center center;
+        }
+        #san-roque-chapel {
+            background: url('https://i.pinimg.com/originals/8e/cb/06/8ecb060886fa4c22be29fb9777c12066.jpg') no-repeat center center;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            background-color: #575757;
+        }
+    </style>
+    <script>
+        function showNavbar() {
+            document.querySelector('.navbar').style.display = 'flex';
+            document.querySelector('.welcome').style.display = 'none';
+        }
+
+        function showSection(id) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.style.display = 'none');
+
+            const selectedSection = document.getElementById(id);
+            selectedSection.style.display = 'block';
+        }
+
+        function backToWelcome() {
+            document.querySelector('.navbar').style.display = 'none';
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.style.display = 'none');
+            document.querySelector('.welcome').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Welcome Message -->
+    <div class="welcome">
+        Welcome to Olongapo Tourist Spot!
+        <br><br>
+        <button onclick="showNavbar()">Explore</button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#" onclick="showSection('subic-bay')">
+            <img src="https://i.pinimg.com/736x/98/65/46/986546c3f69c7d2565209f47c177ba35--olongapo-subic-bay.jpg" alt="Subic Bay">
+            Subic Bay
+        </a>
+        <a href="#" onclick="showSection('inflatable-island')">
+            <img src="https://2.bp.blogspot.com/-RpYtARWyMW4/XFr_h6A3PKI/AAAAAAAAjZ0/78ITNFVwnpsy5_cYI_K39T6oCoka57rZQCKgBGAs/s1600/P1010523.JPG" alt="Inflatable Island">
+            Inflatable Island
+        </a>
+        <a href="#" onclick="showSection('marikit-park')">
+            <img src="https://media-cdn.tripadvisor.com/media/photo-s/0d/46/12/f1/marikit-park.jpg" alt="Marikit Park">
+            Marikit Park
+        </a>
+        <a href="#" onclick="showSection('harbor-point')">
+            <img src="https://th.bing.com/th/id/R.8ecfe29aed7df9c3659b57f10cd6909f?rik=nGHrr0CoQRuiiw&riu=http%3a%2f%2ffarm8.staticflickr.com%2f7248%2f7571868106_ce86bb8186_z.jpg&ehk=LanBsmrWhDSk5felVvjayBf2k5riySXkZj6IlaAe01w%3d&risl=&pid=ImgRaw&r=0" alt="Harbor Point">
+            Harbor Point
+        </a>
+        <a href="#" onclick="showSection('san-roque-chapel')">
+            <img src="https://i.pinimg.com/originals/8e/cb/06/8ecb060886fa4c22be29fb9777c12066.jpg" alt="San Roque Chapel">
+            San Roque Chapel
+        </a>
+    </div>
+
+    <!-- Tourist Spot Sections -->
+    <div id="subic-bay" class="section">
+        <h2>Subic Bay</h2>
+        <p>Subic Bay is a well-known tourist destination in Olongapo, offering stunning beaches, historical sites, and water sports activities. Subic Bay is a well-known tourist destination in Olongapo, offering stunning beaches, historical sites, and water sports activities. From 1901 to 1992 the United States operated a naval base, Subic Bay Naval Station, on the southeast coast of the bay, the largest naval installation in the Philippines. The area suffered heavy damage during World War II; it was taken by the Japanese in 1942 and retaken by Allied forces in 1944.</p>
+    </div>
+
+    <div id="inflatable-island" class="section">
+        <h2>Inflatable Island</h2>
+        <p>Inflatable Island is a floating playground in Subic Bay, Zambales, that spans over 4,200 square meters, making it one of the biggest of its kind in Asia. It is full of obstacle courses, slides, tunnels, and a five-story-high unicorn structure called the Unicornzilla. There's also the "vortex," a 30-foot-long diagonal tunnel that ends in three kinds of slides. For those who wish to stay dry, the Sunflower Lounge has rentable daybeds on the shore that are perfect for relaxing. The depth of the waters surrounding the island range from 4 to 20 feet, so everyone is required to wear a life vest for their safety. along with the life vests, the island also has several life guards roaming around at all times just in case someone may need to be rescued from the sea.</p>
+    </div>
+
+    <div id="marikit-park" class="section">
+        <h2>Marikit Park</h2>
+        <p>One of the earliest parks in Olongapo, the Marikit Park stands the test of time in signifying one of Olongapenos’ favorite hang-outs, particularly students from the nearby college and children on it for its playground. Marikit Park is situated at the center of Olongapo City, this park is ideal for the children and young at heart who simply wants to have a relaxation. A scenic playground and benches are provided in this place. First-time visitors of this alleged “Youth and Children’s Park” will particularly remember it for its fantastic small block of artisan wall, which pays tribute to the hardworking people of Olongapo, and a repurposed fighter jet, left by the Americans sticking on top.</p>
+    </div>
+
+    <div id="harbor-point" class="section">
+        <h2>Harbor Point</h2>
+        <p>Harbor Point redefines shopping, dining, and entertainment in the region.Harbor Point redefines shopping, dining, and entertainment in the region, as it offers the convenience of being strategically-located between the two main gates linking the Subic Bay Freeport Zone to Olongapo City, combined with strong retail concepts set in a relaxing environment. The mall offers the basics, interspersed with exciting first-in-the-region shopping and dining concepts, and an array of specialized shops and services complemented by active and wellness-oriented lifestyle stores.</p>
+    </div>
+
+    <div id="san-roque-chapel" class="section">
+        <h2>San Roque Chapel</h2>
+        <p>San Roque Chapel of the Diocese of Iba was established on --. It is located in Subic Bay Metropolitan Area (SBMA), City of Olongapo, Province of Zambales.</p>
+        <button class="back-button" onclick="backToWelcome()">Back to Welcome</button>
+    </div>
+
+</body>
+</html>
