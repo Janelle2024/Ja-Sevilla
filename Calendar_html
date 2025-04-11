@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yearly Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="year-view" class="calendar-container">
+    <h1>Yearly Calendar</h1>
+    <h2>2026</h2>
+    <div class="yearly-calendar"></div>
+  </div>
+
+  <div id="month-view" class="month-container">
+    <button id="back-button">View Back</button>
+    <div id="zoomed-month"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
