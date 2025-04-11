@@ -1,0 +1,68 @@
+const yearlyCalendarContainer = document.querySelector(".yearly-calendar");
+const yearViewContainer = document.getElementById("year-view");
+const monthViewContainer = document.getElementById("month-view");
+const zoomedMonthContainer = document.getElementById("zoomed-month");
+const backButton = document.getElementById("back-button");
+
+function createMonthTable(year, month, tableColor) {
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const firstDay = new Date(year, month, 1).getDay();
+
+  let tableHTML = `<table style="--table-color: ${tableColor}">`;
+  tableHTML += "<thead><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr></thead>";
+  tableHTML += "<tbody><tr>";
+
+  for (let i = 0; i < firstDay; i++) {
+    tableHTML += `<td></td>`;
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    tableHTML += `<td>${day}</td>`;
+    if ((firstDay + day) % 7 === 0) {
+      tableHTML += "</tr><tr>";
+    }
+  }
+
+  tableHTML += "</tr></tbody></table>";
+  return tableHTML;
+}
+
+function createMonthBox(year, month) {
+  const monthBox = document.createElement("div");
+  monthBox.className = "month-box";
+  const monthName = new Date(year, month).toLocaleString("default", { month: "long" });
+  const tableColor = getComputedStyle(monthBox).getPropertyValue("--table-color");
+
+  monthBox.innerHTML = `<h3>${monthName}</h3>`;
+  monthBox.innerHTML += createMonthTable(year, month, tableColor);
+
+  monthBox.addEventListener("click", () => {
+    zoomIntoMonth(year, month, tableColor);
+  });
+
+  return monthBox;
+}
+
+function renderYearlyCalendar(year) {
+  for (let month = 0; month < 12; month++) {
+    const monthBox = createMonthBox(year, month);
+    yearlyCalendarContainer.appendChild(monthBox);
+  }
+}
+
+function zoomIntoMonth(year, month, tableColor) {
+  yearViewContainer.style.display = "none";
+  monthViewContainer.style.display = "block";
+
+  zoomedMonthContainer.innerHTML = ""; 
+  const monthName = new Date(year, month).toLocaleString("default", { month: "long" });
+  zoomedMonthContainer.innerHTML = `<h2>${monthName} ${year}</h2>`;
+  zoomedMonthContainer.innerHTML += createMonthTable(year, month, tableColor);
+}
+
+backButton.addEventListener("click", () => {
+  yearViewContainer.style.display = "block";
+  monthViewContainer.style.display = "none";
+});
+
+renderYearlyCalendar(2026);
